@@ -1,3 +1,10 @@
+<?php
+
+require_once 'db.php';
+$db =new DB();
+$data=$db->getData();
+?>
+
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -28,7 +35,9 @@ and open the template in the editor.
                 <form action="deleteData.php" method="POST">
                     <select name="id" id="deleteList"
                             class="gt-input full-width rounded-left">
-                        <option value="1">1 - Jhon</option>
+                        <?php foreach ($data as $item){?>
+                        <option value="<?php echo $item['id']?>"><?php echo $item['id']. ' - '.$item['name'] ?></option>
+                        <?php }?>
                     </select>
                     <input type="submit" name="deleteData"
                            value="Delete" class="gt-button rounded-right">
@@ -37,7 +46,10 @@ and open the template in the editor.
                     <form action="editData.php" method="POST">
                         <select name="id" id="editList" class="gt-input 
                                 full-width rounded-left">
-                            <option value="1">1 - Jhon</option>
+                        <?php foreach ($data as $item){?>
+                        <option value="<?php echo $item['id']?>"><?php echo $item['id']. ' - '.$item['name'] ?></option>
+                        <?php }?>
+       
                         </select>
                         <input type="text" name="name"
                                placeholder="Name" class="gt-input">
@@ -62,17 +74,16 @@ and open the template in the editor.
                         </tr>
                     </thead>
                     <tbody>
+                        <?php foreach ($data as $i){?>
                         <tr>
-                            <td>1</td>
-                            <td>John</td>
+                            <td><?php echo $i['id']?></td>
+                            <td><?php echo $i['name']?></td>
                         </tr>
+                        <?php }?>
                     </tbody>
                 </table>
                 </div>
             </div>
         </div>
-        <?php
-        // put your code here
-        ?>
     </body>
 </html>
