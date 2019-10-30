@@ -73,7 +73,7 @@ and open the template in the editor.
                             <th>Name</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="data-table">
                         <?php foreach ($data as $i){?>
                         <tr>
                             <td><?php echo $i['id']?></td>
