@@ -63,7 +63,7 @@ and open the template in the editor.
                 
                 <form method="POST">
                     <input type="text" name="name" placeholder="Search Name"
-                           class="gt-input rounded-left rounded-right">
+                           class="gt-input rounded-left rounded-right" onkeyup="searchNames(this.value)">
                 </form>
                 <div class="data-wrapper">
                     <table>
@@ -85,5 +85,6 @@ and open the template in the editor.
                 </div>
             </div>
         </div>
+        <script src="main.js"> </script>
     </body>
 </html>
